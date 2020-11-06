@@ -15,8 +15,20 @@ for bash users
 gcloud init
 
 gcloud auth application-default login
-cat ~/.config/gcloud/application_default_credentials.json 
+cat ~/.config/gcloud/application_default_credentials.json
 
-gcloud organizations projedt
+❯ gcloud projects list
+PROJECT_ID        NAME       PROJECT_NUMBER
+devsecops-294715  DevSecOps  141529759768
+
+docker pull eerkunt/terraform-compliance
+
+docker run --rm -v $PWD:/target -i -t eerkunt/terraform-compliance \
+                                            -f example/example_01 \
+                                            -t example/tf_files
+
+docker run --rm -i -t eerkunt/terraform-compliance \
+                            -f git:https://some.git.repository/compliance-code.git \
+                            -t git:https://some.git.repository/terraform-repo.git
 ```
 
