@@ -1,16 +1,3 @@
-# Default values for jenkins.
-# This is a YAML-formatted file.
-# Declare name/value pairs to be passed into your templates.
-# name: value
-
-## Overrides for generated resource names
-# See templates/_helpers.tpl
-# nameOverride:
-# fullnameOverride:
-# namespaceOverride:
-
-# For FQDN resolving of the master service. Change this value to match your existing configuration.
-# ref: https://github.com/kubernetes/dns/blob/master/docs/specification.md
 clusterZone: "cluster.local"
 
 master:
@@ -101,7 +88,7 @@ master:
   # If you disable the non-Jenkins identity store and instead use the Jenkins internal one,
   # you should revert master.adminUser to your preferred admin user:
   adminUser: "admin"
-  # adminPassword: <defaults to random>
+  adminPassword: "save7549"
   admin:
     existingSecret: ""
     userKey: jenkins-admin-user
@@ -146,7 +133,7 @@ master:
   targetPort: 8080
   # For minikube, set this to NodePort, elsewhere use LoadBalancer
   # Use ClusterIP if your setup includes ingress controller
-  serviceType: ClusterIP
+  serviceType: LoadBalancer
   # Jenkins master service annotations
   serviceAnnotations: {}
   # Jenkins master custom labels
@@ -703,3 +690,4 @@ backup:
   # Ref: https://github.com/maorfr/skbn
   destination: "s3://jenkins-data/backup"
 checkDeprecation: true
+
